@@ -77,6 +77,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -117,6 +120,13 @@
   <ItemGroup>
     <ClCompile Include="10817.cpp" />
     <ClCompile Include="10871.cpp" />
+    <ClCompile Include="1110.cpp" />
+    <ClCompile Include="1546.cpp" />
+    <ClCompile Include="2577.cpp" />
+    <ClCompile Include="2920.cpp" />
+    <ClCompile Include="4344.cpp" />
+    <ClCompile Include="1152.cpp" />
+    <ClCompile Include="8958.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
