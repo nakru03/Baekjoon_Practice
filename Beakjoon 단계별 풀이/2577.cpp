@@ -9,28 +9,28 @@
 //계산한 결과 17037300 에는 0이 3번, 1이 1번, 3이 2번, 7이 2번 쓰였다.
 //
 
-#include <iostream>
-#include <stdlib.h>
-using namespace std;
-
-int main()
-{
-	int A, B, C;
-	int result;
-	int count[10] = {0,};
-	
-	cin >> A >> B >> C;
-	result = A * B*C;
-
-	while (result != 0)
-	{
-		int tmp;
-		tmp = result % 10;
-		count[tmp]++;
-		result /= 10;
-	}
-	for (int i = 0; i < 10; i++)
-	{
-		cout << count[i] << endl;;
-	}
-}
+//#include <iostream>
+//#include <stdlib.h>
+//using namespace std;
+//
+//int main()
+//{
+//	int A, B, C;
+//	int result;
+//	int count[10] = {0,};
+//	
+//	cin >> A >> B >> C;
+//	result = A * B*C;
+//
+//	while (result != 0)
+//	{
+//		int tmp;
+//		tmp = result % 10;
+//		count[tmp]++;
+//		result /= 10;
+//	}
+//	for (int i = 0; i < 10; i++)
+//	{
+//		cout << count[i] << endl;;
+//	}
+//}

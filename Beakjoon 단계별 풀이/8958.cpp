@@ -7,35 +7,35 @@
 //OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작성하시오.
 
 
-#include <iostream>
-#include <cstring>
-using namespace std;
-
-int main() 
-{
-	int n;
-	char s[81];
-	
-	cin >> n;
-
-	for (int i = 0; i < n; i++)
-	{
-		cin >> s;
-		int score = 0;
-		int count = 0;
-		int size = strlen(s);	
-
-		for (int j = 0; j < size; j++)
-		{
-			if (s[j] == 'O')
-			{
-				++count;
-				score += count;
-			}
-			else
-				count = 0;
-								
-		}
-		cout << score<<endl;
-	}
-}
+//#include <iostream>
+//#include <cstring>
+//using namespace std;
+//
+//int main() 
+//{
+//	int n;
+//	char s[81];
+//	
+//	cin >> n;
+//
+//	for (int i = 0; i < n; i++)
+//	{
+//		cin >> s;
+//		int score = 0;
+//		int count = 0;
+//		int size = strlen(s);	
+//
+//		for (int j = 0; j < size; j++)
+//		{
+//			if (s[j] == 'O')
+//			{
+//				++count;
+//				score += count;
+//			}
+//			else
+//				count = 0;
+//								
+//		}
+//		cout << score<<endl;
+//	}
+//}

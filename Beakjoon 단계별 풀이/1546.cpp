@@ -7,31 +7,31 @@
 //세준이의 성적을 위의 방법대로 새로 계산했을 때, 새로운 평균을 구하는 프로그램을 작성하시오.
 
 
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <stdio.h>
-using namespace std;
-
-int main()
-{
-	vector<double> arr;
-	int N;
-	double n;
-	double sum=0;
-	cin >> N;
-	for (int i = 0; i < N; i++)
-	{
-		cin >> n;
-		arr.push_back(n);
-	}
-	sort(arr.begin(), arr.end());
-	
-	for (int i = 0; i < N; i++)
-	{
-		sum = sum + (arr[i] / arr[N - 1] * 100.0);
-		
-	}
-	
-	printf("%.2lf", sum / (double)N);
-}
+//#include <iostream>
+//#include <algorithm>
+//#include <vector>
+//#include <stdio.h>
+//using namespace std;
+//
+//int main()
+//{
+//	vector<double> arr;
+//	int N;
+//	double n;
+//	double sum=0;
+//	cin >> N;
+//	for (int i = 0; i < N; i++)
+//	{
+//		cin >> n;
+//		arr.push_back(n);
+//	}
+//	sort(arr.begin(), arr.end());
+//	
+//	for (int i = 0; i < N; i++)
+//	{
+//		sum = sum + (arr[i] / arr[N - 1] * 100.0);
+//		
+//	}
+//	
+//	printf("%.2lf", sum / (double)N);
+//}
