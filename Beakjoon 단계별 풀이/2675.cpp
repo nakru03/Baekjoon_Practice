@@ -6,12 +6,36 @@
 //
 //QR Code "alphanumeric" 문자는 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$%*+-. / : 이다.
 
-#include <iostream>
-
-using namespace std;
-
-int main()
-{
-	char s[1001];
-
-}
+//#include <iostream>
+//#include <cstring>
+//using namespace std;
+//
+//int main()
+//{
+//	int T;
+//	char s[21];
+//	int R;
+//
+//	cin >> T;
+//	if (T <= 0 || T > 1000)
+//		return 0;
+//
+//	for (int i = 0; i < T; i++)
+//	{
+//		cin >> R;
+//		if (R <= 0 || R > 8)
+//			return 0;
+//		cin >> s;
+//		int length = strlen(s);
+//		for (int j = 0; j < length; j++)
+//		{
+//			for (int k = 0; k<R; k++)
+//			{
+//				cout << s[j];
+//			}
+//		}
+//		cout << endl;
+//	
+//
+//	}
+//}

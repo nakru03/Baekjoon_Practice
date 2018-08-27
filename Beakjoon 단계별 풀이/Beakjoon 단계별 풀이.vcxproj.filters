@@ -13,46 +13,100 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\8. 규칙찾기">
+      <UniqueIdentifier>{d06c266f-b701-40c2-97a4-b5f744ed82f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\9. 정렬하기">
+      <UniqueIdentifier>{735566d5-2864-4ac0-8735-d2220854b428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\16. DP 기초">
+      <UniqueIdentifier>{ae246046-4270-4d40-a60a-b83ff95d5096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\5. 함수">
+      <UniqueIdentifier>{23e56efa-54b1-42a8-affd-a4851f8e92b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="10817.cpp">
-      <Filter>리소스 파일</Filter>
+    <ClCompile Include="2292.cpp">
+      <Filter>소스 파일\8. 규칙찾기</Filter>
     </ClCompile>
-    <ClCompile Include="10871.cpp">
-      <Filter>리소스 파일</Filter>
+    <ClCompile Include="1193cpp.cpp">
+      <Filter>소스 파일\8. 규칙찾기</Filter>
     </ClCompile>
-    <ClCompile Include="1546.cpp">
-      <Filter>리소스 파일</Filter>
+    <ClCompile Include="10250.cpp">
+      <Filter>소스 파일\8. 규칙찾기</Filter>
     </ClCompile>
-    <ClCompile Include="4344.cpp">
-      <Filter>리소스 파일</Filter>
+    <ClCompile Include="2750.cpp">
+      <Filter>소스 파일\9. 정렬하기</Filter>
+    </ClCompile>
+    <ClCompile Include="2775미완.cpp">
+      <Filter>소스 파일\8. 규칙찾기</Filter>
+    </ClCompile>
+    <ClCompile Include="1011미완.cpp">
+      <Filter>소스 파일\8. 규칙찾기</Filter>
+    </ClCompile>
+    <ClCompile Include="2751.cpp">
+      <Filter>소스 파일\9. 정렬하기</Filter>
+    </ClCompile>
+    <ClCompile Include="1003.cpp">
+      <Filter>소스 파일\16. DP 기초</Filter>
+    </ClCompile>
+    <ClCompile Include="1932.cpp">
+      <Filter>소스 파일\16. DP 기초</Filter>
     </ClCompile>
     <ClCompile Include="1110.cpp">
-      <Filter>리소스 파일</Filter>
+      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="1152.cpp">
-      <Filter>리소스 파일</Filter>
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1157.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1316.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1546.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="2577.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="8958.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="2920.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="10039.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="11654.cpp">
-      <Filter>리소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="10809.cpp">
-      <Filter>리소스 파일</Filter>
+      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="2675.cpp">
-      <Filter>리소스 파일</Filter>
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2908.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2920.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="4344.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="5622.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="8958.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10039.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10809.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10817.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10871.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11654.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="4673.cpp">
+      <Filter>소스 파일\5. 함수</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
