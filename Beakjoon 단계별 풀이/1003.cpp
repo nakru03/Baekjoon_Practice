@@ -1,42 +1,41 @@
-////¸Þ¸ðÁ¦ÀÌ¼ÇÀ» ÀÌ¿ëÇÑ ÇÇº¸³ªÄ¡ ¹®Á¦.//
-//#include <iostream>
-//
-//using namespace std;
-//
-//int memo[41] = { 1,1, };
-//
-//int fibo_mem(int n)
-//{	
-//	if (n == 0)
-//	{
-//		memo[0] = 1;
-//		return 0;
-//	}
-//	else if (n == 1)
-//	{
-//		memo[1] = 1;
-//		return 1;
-//	}
-//	return memo[n] = fibo_mem(n - 1) + fibo_mem(n - 2);
-//}
-//
-//int main()
-//{
-//	
-//	int tc;
-//
-//	scanf("%d", &tc);
-//	for (int i = 0; i < tc; ++i)
-//	{
-//		int n;
-//		scanf("%d", &n);
-//		if (n == 0) printf("1 0\n");
-//		else if (n == 1) printf("0 1\n");
-//		else {
-//			fibo_mem(n);
-//			printf("%d %d", memo[n - 2], memo[n - 1]);
-//		}	
-//		
-//	}
-//	return 0;
-//}
+ï»¿#include <iostream>
+
+using namespace std;
+
+
+int arr[41] = { 0,1 };
+int fibonacci(int n)
+{
+	if (n == 0) return 0;
+
+	else if (n == 1) return 1;
+
+	if (arr[n] != 0) //ë©”ëª¨ì œì´ì…˜ í™œìš©.
+		return arr[n];
+	else {
+		return arr[n] = fibonacci(n - 1) + fibonacci(n - 2);
+	}
+	
+}
+int main()
+{
+	cin.sync_with_stdio(false);
+	int tc;
+	cin >> tc;
+	for (int i = 0; i < tc; ++i)
+	{
+		int n;
+		cin >> n;
+		if (n == 0) {
+			printf("1 0\n");
+		}
+		else if (n == 1) {
+			printf("0 1\n");
+		}
+		else {
+			fibonacci(n);
+			printf("%d %d\n", arr[n - 1], arr[n]);
+		}
+		
+	}
+}
