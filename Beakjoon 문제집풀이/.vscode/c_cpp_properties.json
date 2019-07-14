@@ -1,0 +1,58 @@
+
+{
+
+    "configurations": [
+
+        {
+
+            "name": "Win32",
+
+            "includePath": [
+
+                "${workspaceRoot}",
+
+                "C:/MinGW/include"
+
+
+            ],
+
+            "defines": [
+
+                "_DEBUG",
+
+                "UNICODE",
+
+                "__GNUC__=6",
+
+                "__cdecl=__attribute__((__cdecl__))"
+
+            ],
+
+            "intelliSenseMode": "clang-x64",
+
+            "browse": {
+
+                "path": [
+
+                    "${workspaceRoot}",
+
+                    "C:/MinGW/include"
+
+                   
+
+                ],
+
+                "limitSymbolsToIncludedHeaders": true,
+
+                "databaseFilename": ""
+
+            }
+
+        }
+
+    ],
+
+    "version": 4
+
+}
+
