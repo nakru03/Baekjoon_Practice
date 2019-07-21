@@ -1,12 +1,9 @@
-﻿import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.LinkedList;
+﻿import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
-public class BJO7577_2 {
+
+public class BJO7576 {
 
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
@@ -22,21 +19,15 @@ public class BJO7577_2 {
 		
 		for(int y=0; y<n; ++y) {
 			for(int x=0; x<m; ++x) {
-				board[y][x] = sc.nextInt();				
-			}
-		}
-		
-		for(int y=0; y<n; ++y) {
-			for(int x=0; x<m; ++x) {
+				board[y][x] = sc.nextInt();		
 				if(board[y][x] == 1) {
 					q.offer(new Pair(y,x));
-				}	
+				}
 			}
 		}
-		
 		while(!q.isEmpty()) {
-			Pair curr = q.poll();
-			for(int dir=0; dir<4; ++dir) {
+			Pair curr = q.remove();
+			for(int dir=0; dir<dx.length; ++dir) {
 				int ny = curr.first + dy[dir];
 				int nx = curr.second + dx[dir];
 				
@@ -44,14 +35,15 @@ public class BJO7577_2 {
 				if(board[ny][nx] !=0) continue; //1일거나 -1일이떄
 				board[ny][nx] = 1;
 				day[ny][nx] = day[curr.first][curr.second]+1;
+				
 				q.offer(new Pair(ny, nx));
 			}
 			
 		}
 		int max = Integer.MIN_VALUE;
 		for(int y=0; y<n; ++y) {
-			for(int x=0; x<n; ++x) {
-				System.out.print(day[y][x]+"\t");
+			for(int x=0; x<m; ++x) {
+				
 				if(board[y][x]==0) {
 					System.out.println(-1);
 					return;
@@ -61,18 +53,19 @@ public class BJO7577_2 {
 						max = day[y][x];
 				}
 			}
-			System.out.println();
+			
 		}
 		System.out.println(max);
 	}
 	
-	static class Pair{
-		int first;
-		int second;
-		Pair(int first, int second){
-			this.first = first;
-			this.second = second;
-		}
-	}
+	
 
+}
+class Pair{
+	int first;
+	int second;
+	Pair(int first, int second){
+		this.first = first;
+		this.second = second;
+	}
 }
