@@ -10,28 +10,29 @@ public class BJO10819 {
 		Scanner sc = new Scanner(System.in);
 		ArrayList<Integer> arr = new ArrayList<>();
 		int n = sc.nextInt();
-		int max = Integer.MIN_VALUE;
+		
 		
 		for(int i=0; i<n; ++i) {
 			arr.add(sc.nextInt());
 		}
-		max = Math.max(max, doPerm(arr,0));
+		doPerm(arr,0);
 		System.out.println(max);
 		
 
 	}
+	static int max = Integer.MIN_VALUE;
 	static ArrayList<Integer> res = new ArrayList<Integer>();
 	static boolean[] visited = new boolean[8];
-	private static int doPerm(ArrayList<Integer> arr, int depth) {
+	private static void doPerm(ArrayList<Integer> arr, int depth) {
 		
 		if(depth==arr.size()) {
 			int sum = 0;
 			for(int i=0; i<res.size()-1; ++i) {
 				sum += Math.abs(res.get(i)-res.get(i+1));
 			}
-			System.out.println(res);
-			System.out.println(sum);
-			return sum;
+			max = Math.max(sum, max);
+			//System.out.println(res);
+			//System.out.println(sum);
 		}
 		
 		for(int i=0; i<arr.size(); ++i) {
@@ -42,7 +43,6 @@ public class BJO10819 {
 			visited[i] = false;
 			res.remove(res.size()-1);
 		}
-		return 0;
 	}
 
 }
