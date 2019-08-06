@@ -1,44 +1,55 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
-/*
- * 
- * 외판원순회 2
- * 단방향 가중치 그래프
- * 가장 적은 비용을 구하라.
- * dfs?
- * 햄버거 문제랑 비슷.
- */
 public class BJO10971 {
-	static int[][] costBoard;
-	static boolean[] visited;
-	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	static int weight[][];
+	static int min = Integer.MAX_VALUE;
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		int n = sc.nextInt();
-		costBoard = new int[n][n];
-		visited = new boolean[n];
-		for(int y=0; y<n; ++y) {
-			for(int x=0; x<n; ++x) {
-				costBoard[y][x] = sc.nextInt();
+		int N = Integer.parseInt(br.readLine());
+		weight = new int[N][N];
+		for(int i=0; i<N; ++i) {
+			StringTokenizer tokenizer = new StringTokenizer(br.readLine());
+			
+			for(int j=0; j<N; ++j) {
+				weight[i][j] = Integer.parseInt(tokenizer.nextToken());
 			}
 		}
-		int lowest = tsp(n, 0, 0, 0);
-	}
-	
-	private static int  tsp(int n, int start, int depth, int sum) {
-		boolean flag = true;
-		sum =0;		
-		
-		
-		for(int i=0; i<visited.length; ++i) {
-			if(visited[i]) continue;
-			visited[i] = true;			
-			tsp(n, i, depth+1, sum);		
-			visited[i] = false;
+		int[] city = new int[N];
+		for(int i=0; i<city.length; ++i) {
+			city[i] = i;
 		}
-		return n;
+		tsp(city, 0);
+		System.out.println(min);
 		
 	}
-
+	private static void tsp(int[] city, int start) {
+		
+		if(start == city.length) {
+			int cost = 0;
+			for(int i=0; i<city.length-1; ++i) {
+				if(weight[city[i]][city[i+1]] == 0) return;
+				cost += weight[city[i]][city[i+1]];					
+			}
+			if(weight[city[city.length-1]][city[0]]==0) return;
+			cost+= weight[city[city.length-1]][city[0]];
+			
+			min = Math.min(min, cost);
+		}
+		
+		for(int next=start; next<city.length; ++next) {
+			swap(city, start, next);
+			tsp(city, start+1);
+			swap(city, next, start);
+			
+		}
+	}
+	private static void swap(int[] city, int start, int next) {
+		int tmp = city[start];
+		city[start] = city[next];
+		city[next] = tmp;
+		
+	}
 }
