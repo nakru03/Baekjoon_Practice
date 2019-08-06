@@ -19,7 +19,7 @@ public class BJO14888 {
 		}
 		
 		operArr = makeOperArr(oper);
-		System.out.println(operArr);	
+		//System.out.println(operArr);	
 		dfs(arr, operArr, 0);
 		System.out.println(max);
 		System.out.println(min);
@@ -43,35 +43,28 @@ public class BJO14888 {
 	private static void dfs(int[] arr, ArrayList<Integer> operArr, int depth ) {
 		
 		if(depth == operArr.size()) {
-			System.out.println(permOper);
-			int sum = 0;
+			//System.out.println(permOper);
+			int sum = arr[0];
 			
-			for(int i=0; i<arr.length-1; ++i) { //arr[i]와 더하는게아님 연산에서 miss.
-				switch(permOper.get(i)) {
-				case 0:
-					if(sum==0)
-						sum = arr[i]+arr[i+1];
-					else sum = sum + arr[i+1];
+			for(int i=0; i<arr.length-1; ++i) {
+				switch(permOper.get(i)) {				
+				case 0:					
+					sum = sum + arr[i+1];
 					break;
-				case 1:
-					if(sum==0)
-						sum = arr[i] - 	arr[i+1];
-					else sum = sum - arr[i+1];
+				case 1:					
+					sum = sum - arr[i+1];
 					break;
-				case 2:
-					if(sum==0)
-						sum = arr[i] * arr[i+1];
-					else sum = sum * arr[i+1];
+				case 2:					
+					sum = sum * arr[i+1];
 					break;
 				case 3:
-					if(sum==0)
-						sum = arr[i] / arr[i+1];
-					else sum = sum / arr[i+1];
+					sum = sum / arr[i+1];
 					break;
 				}
 			}
 			
 			max = Math.max(sum, max);	
+			//System.out.println(max);
 			min = Math.min(sum, min);
 		}
 		
