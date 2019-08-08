@@ -20,7 +20,7 @@ public class BJO15666 {
 		nArray = new ArrayList<>();
 		result=new ArrayList<>(); //정답배열
 		//중복제거를 위한 셋.
-		set = new LinkedHashSet<ArrayList<Integer>>(); //링크드 해쉬셋 정렬을 보장.
+		set = new LinkedHashSet<ArrayList<Integer>>(); //링크드 해쉬셋..->>삽입 순서를 셋팅. 트리셋->> 정렬 보장
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String line1 = br.readLine();
 		String line2 = br.readLine();
