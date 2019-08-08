@@ -9,18 +9,18 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class BJO15663 {
+public class BJO15666 {
 	static int N;
 	static ArrayList<Integer> nArray;
 	static ArrayList<Integer> result;
-	static boolean[] visited;
-	static LinkedHashSet<ArrayList<Integer>> set;
+	//static boolean[] visited;
+	static Set<ArrayList<Integer>> set;
 	
 	public static void main(String[] args) throws IOException {
 		nArray = new ArrayList<>();
 		result=new ArrayList<>(); //정답배열
 		//중복제거를 위한 셋.
-		set = new LinkedHashSet<ArrayList<Integer>>();
+		set = new LinkedHashSet<ArrayList<Integer>>(); //링크드 해쉬셋 정렬을 보장.
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String line1 = br.readLine();
 		String line2 = br.readLine();
@@ -33,34 +33,34 @@ public class BJO15663 {
 		}
 		
 		Collections.sort(nArray);
-		visited = new boolean[N+1];
+		//visited = new boolean[N+1];
 		
-		doPerm(M, 0, set);
+		doPerm(0, M, 0);
 		Iterator it = set.iterator();
 		while(it.hasNext()) {
-			System.out.println(it.next());
+			ArrayList<Integer> tmp = (ArrayList<Integer>) it.next(); //object형으로 나와서 다시 캐스팅을 위한 tmp
+			for(int i=0; i<tmp.size(); ++i) {
+				sb.append(tmp.get(i)+" ");
+			}
+			sb.append("\n");
 		}
-		//System.out.println(sb);
+		System.out.println(sb);
 	}
 	static StringBuilder sb = new StringBuilder();
 	
-	private static void doPerm(int m, int start, LinkedHashSet<ArrayList<Integer>> set) {
+	private static void doPerm(int index, int m, int start) {
 		
 		if(start == m) {
-			ArrayList<Integer>tmp = result;
-			System.out.println(tmp.toString());
-			set.add(tmp);
-			//System.out.println(set.toString());
-			//sb.append("\n");
+			set.add((ArrayList<Integer>) result.clone());	//set에 result를 복사해서 넘겨야함.		
 			return;
 		}
 		
-		for(int i=0; i<N; ++i) {			
-			if(visited[i]) continue;
-			visited[i] =true;
+		for(int i=index; i<N; ++i) {			
+			//if(visited[i]) continue;
+			//visited[i] =true;
 			result.add(nArray.get(i));
-			doPerm(m, start+1, set);
-			visited[i]=false;
+			doPerm(i, m, start+1);
+			//visited[i]=false;
 			result.remove(result.size()-1);
 		}
 	}
