@@ -9,7 +9,7 @@ public class BOJ11724 {
 	static int[][] graph;
 	static boolean[] visited;
 	public static void main(String[] args) throws IOException {
-	
+		//입력...
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer tokenizer = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(tokenizer.nextToken());
@@ -20,33 +20,35 @@ public class BOJ11724 {
 		for(int i=0; i<m; ++i) {
 			tokenizer = new StringTokenizer(br.readLine());
 			int y = Integer.parseInt(tokenizer.nextToken());
-			int x = Integer.parseInt(tokenizer.nextToken());			
+			int x = Integer.parseInt(tokenizer.nextToken());
 			graph[y][x] = graph[x][y] = 1;			
 		}
 		
-		//입력...
+		//탐색
 		for(int i=1; i<=n; ++i) {
-			bfs(i, graph);
+			if(visited[i]) continue;{
+				bfs(i);
+				cnt++;
+			}				
 		}		
 		System.out.println(cnt);
 	}
 	static int cnt;
-	private static void bfs(int start, int[][] graph) {
+	private static void bfs(int start) {
 		Queue<Integer> q = new LinkedList<>();
 		q.offer(start);
 		visited[start] = true;
 		
 		while(!q.isEmpty()) {
+			
 			int curr = q.poll();
 			for(int next=1; next < graph.length; ++next) {
 				if(graph[curr][next]!=1)continue;
 				if(visited[next]) continue;
 				q.offer(next);
-				visited[next] = true;
-				cnt++;
-			}
-			
-		}
+				visited[next] = true;				
+			}			
+		}		
 		
 	}
 }
