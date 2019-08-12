@@ -31,9 +31,12 @@ public class BOJ2146 {
 		int idx = 1;
 		for(int y=0; y<n; ++y) {
 			for(int x=0; x<n; ++x) {
-				namingIsland(new Pair(y,x), idx++);
+				if(visited[y][x] || board[y][x]==0) continue;
+				namingIsland(new Pair(y,x), idx);
+				idx++;
 			}			
 		}
+		
 		//q2에 모든 섬을 넣음.
 		islandQ = new LinkedList<>();
 		for(int y=0; y<n; ++y) {
@@ -59,20 +62,19 @@ public class BOJ2146 {
 			for(int dir=0; dir<4; ++dir) {				
 				int ny = curr.y + dy[dir];
 				int nx = curr.x + dx[dir];
-				if(ny<0 || nx<0 || ny >= board.length || nx >= board.length) continue;
-				if(board[ny][nx] == board[curr.y][curr.x]) continue;
-				if(board[ny][nx] != board[curr.y][curr.x] && board[ny][nx]!=0) {
-					int tmp = bridge[curr.y][curr.x] + bridge[ny][nx];
-					System.out.println(tmp);
-					min = Math.min(min, tmp); //다리 완성
+				if(ny>=0 && nx>=0 && ny < board.length && nx < board.length) {
+					if(board[ny][nx] != board[curr.y][curr.x] && board[ny][nx]!=0) {
+						//System.out.println(bridge[ny][nx]+bridge[curr.y][curr.x]);
+						min = Math.min(min, bridge[ny][nx]+bridge[curr.y][curr.x]); //섬에서 섬까지의 거리합산.
+					}
+					
+					else if(board[ny][nx]==0) {
+						islandQ.offer(new Pair (ny,nx));
+						board[ny][nx] = board[curr.y][curr.x];
+						bridge[ny][nx] = bridge[curr.y][curr.x]+1;//bfs의 특성 활용
+					}
 				}
-				else {
-					islandQ.offer(new Pair(ny, nx));
-					board[ny][nx] = board[curr.y][curr.x];
-					bridge[ny][nx] = bridge[curr.x][curr.y]+1;
-				}
-				
-				
+							
 			}
 		}		
 	}
@@ -89,11 +91,12 @@ public class BOJ2146 {
 			for(int dir=0; dir<4; ++dir) {
 				int ny = curr.y+dy[dir];
 				int nx = curr.x+dx[dir];
-				if(ny<0 || nx<0 || ny >= board.length || nx >= board.length) continue;
+				
+				if(ny<0 || nx<0 || ny >= board.length || nx >= board.length) continue;				
 				if(board[ny][nx] == 0 || visited[ny][nx]) continue;
-				board[ny][nx] = idx;
 				q.offer(new Pair(ny, nx));
-				visited[curr.y][curr.x] = true;
+				board[ny][nx] = idx;				
+				visited[ny][nx] = true;
 			}
 		}		
 	}
