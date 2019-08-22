@@ -44,24 +44,24 @@ public class BOJ17140 {
 			//R연산
 			if(maxY>=maxX) {
 				Rcalc();
-				System.out.println();
-				for(int y=0; y<maxY; ++y) {
-					for(int x=0; x<maxX; ++x) {
-						System.out.print(board[y][x]+" ");
-					}
-					System.out.println();
-				}
+//				System.out.println();
+//				for(int y=0; y<maxY; ++y) {
+//					for(int x=0; x<maxX; ++x) {
+//						System.out.print(board[y][x]+" ");
+//					}
+//					System.out.println();
+//				}
 			}
 			//C연산
 			else {
 				Ccalc();
-				System.out.println();
-				for(int y=0; y<maxY; ++y) {
-					for(int x=0; x<maxX; ++x) {
-						System.out.print(board[y][x]+" ");
-					}
-					System.out.println();
-				}
+//				System.out.println();
+//				for(int y=0; y<maxY; ++y) {
+//					for(int x=0; x<maxX; ++x) {
+//						System.out.print(board[y][x]+" ");
+//					}
+//					System.out.println();
+//				}
 				
 			}
 			result++;
@@ -76,8 +76,7 @@ public class BOJ17140 {
 			for(int x=0; x<maxY; ++x) {
 				if(board[x][y]==0) continue;
 				count[board[x][y]]++;
-				board[x][y] = 0;
-									
+				board[x][y] = 0;			
 				
 				
 			}
@@ -89,7 +88,7 @@ public class BOJ17140 {
 
 				@Override
 				public int compare(Pair arg0, Pair arg1) {
-					return arg0.count-arg1.count;
+					return arg0.count==arg1.count ? arg0.num - arg1.num : arg0.count-arg1.count;
 				}		
 			});
 			int idx=0;
@@ -110,7 +109,7 @@ public class BOJ17140 {
 		int tmp =0;
 		for(int y=0; y<maxY; ++y) {
 			for(int x=0; x<maxX; ++x) {
-				if(board[x][y]==0) continue;
+				if(board[y][x]==0) continue;
 				count[board[y][x]]++;
 				board[y][x] = 0;
 						
@@ -123,7 +122,7 @@ public class BOJ17140 {
 
 				@Override
 				public int compare(Pair arg0, Pair arg1) {
-					 return arg0.count-arg1.count;
+					 return arg0.count==arg1.count ? arg0.num - arg1.num : arg0.count-arg1.count;
 				}		
 			});
 			int idx=0;
