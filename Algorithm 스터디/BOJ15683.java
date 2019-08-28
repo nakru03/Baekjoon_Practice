@@ -9,6 +9,7 @@ public class BOJ15683 {
 	static int[][] board;
 	static ArrayList<Cctv> list;
 	static ArrayList<Cctv> wall;
+	static ArrayList<Cctv> only5;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,14 +20,18 @@ public class BOJ15683 {
 		board = new int[Y][X];
 		list = new ArrayList<Cctv>();
 		wall = new ArrayList<Cctv>();
+		only5 = new ArrayList<Cctv>();
+		
 		for (int y = 0; y < Y; ++y) {
 			s = br.readLine().split(" ");
 			for (int x = 0; x < X; ++x) {
 				board[y][x] = Integer.parseInt(s[x]);
-				if (board[y][x] > 0 && board[y][x] < 6) {
-					list.add(new Cctv(y, x, board[y][x]));
-					if (board[y][x] == 5) //5는 perm에 넣지 않음.
+				if (board[y][x] > 0 && board[y][x] < 6) {					
+					if (board[y][x] == 5) { //5를 따로관리
+						only5.add(new Cctv(y,x,board[y][x]));
 						continue;
+					}						
+					list.add(new Cctv(y, x, board[y][x]));
 					count++;
 				} else if (board[y][x] == 6) {
 					wall.add(new Cctv(y, x, -1)); // 배열 리셋시 위치값떄문에.
@@ -35,6 +40,7 @@ public class BOJ15683 {
 			}
 
 		}
+		reset();
 		dfs(0, count); //dfs 솔루션..
 		System.out.println(min);
 
@@ -46,14 +52,6 @@ public class BOJ15683 {
 	private static void dfs(int depth, int count) {
 		if (depth == count) { //순열 완성.
 			Search();
-			System.out.println("######################################");
-			for (int i = 0; i < Y; ++i) {
-				for (int j = 0; j < X; ++j) {
-					System.out.print(board[i][j] + " ");
-				}
-				System.out.println();
-			}
-			System.out.println("######################################");
 			min = Math.min(min, minCheck());
 			reset();
 
@@ -71,62 +69,62 @@ public class BOJ15683 {
 			switch (perm.get(i)) {
 			case 1:
 				if (list.get(i).num == 1) {
-					left(i);
+					left(i, list);
 				} else if (list.get(i).num == 2) {
-					left(i);
-					right(i);
+					left(i, list);
+					right(i, list);
 				} else if (list.get(i).num == 3) {
-					up(i);
-					right(i);
+					up(i, list);
+					right(i, list);
 				} else if (list.get(i).num == 4) {
-					left(i);
-					right(i);
-					up(i);
+					left(i, list);
+					right(i, list);
+					up(i, list);
 				}
 				break;
 			case 2:
 				if (list.get(i).num == 1) {
-					right(i);
+					right(i, list);
 				} else if (list.get(i).num == 2) {
-					left(i);
-					right(i);
+					left(i, list);
+					right(i, list);
 				} else if (list.get(i).num == 3) {
-					up(i);
-					left(i);
+					up(i, list);
+					left(i, list);
 				} else if (list.get(i).num == 4) {
-					up(i);
-					down(i);
-					right(i);
+					up(i, list);
+					down(i, list);
+					right(i, list);
 				}
 				break;
 			case 3:
 				if (list.get(i).num == 1) {
-					up(i);
+					up(i, list);
 				} else if (list.get(i).num == 2) {
-					up(i);
-					down(i);
+					up(i, list);
+					down(i, list);
 				} else if (list.get(i).num == 3) {
-					down(i);
-					right(i);
+					down(i, list);
+					right(i, list);
 				} else if (list.get(i).num == 4) {
-					down(i);
-					right(i);
-					left(i);
+					down(i, list);
+					right(i, list);
+					left(i, list);
 				}
 				break;
 			case 4:
 				if (list.get(i).num == 1) {
-					down(i);
+					down(i, list);
 				} else if (list.get(i).num == 2) {
-					up(i);
-					down(i);
+					up(i, list);
+					down(i, list);
 				} else if (list.get(i).num == 3) {
-					down(i);
-					left(i);
+					down(i, list);
+					left(i, list);
 				} else if (list.get(i).num == 4) {
-					down(i);
-					left(i);
-					right(i);
+					down(i, list);
+					left(i, list);
+					up(i, list);
 				}
 				break;
 			}
@@ -144,7 +142,7 @@ public class BOJ15683 {
 		return count;
 	}
 
-	private static void up(int i) {
+	private static void up(int i, ArrayList<Cctv> list) {
 		int currY = list.get(i).y;
 		int currX = list.get(i).x;
 		while (true) {
@@ -156,7 +154,7 @@ public class BOJ15683 {
 		}
 	}
 
-	private static void down(int i) {
+	private static void down(int i, ArrayList<Cctv> list) {
 		int currY = list.get(i).y;
 		int currX = list.get(i).x;
 		while (true) {
@@ -168,7 +166,7 @@ public class BOJ15683 {
 		}
 	}
 
-	private static void left(int i) {
+	private static void left(int i, ArrayList<Cctv> list) {
 		int currY = list.get(i).y;
 		int currX = list.get(i).x;
 		while (true) {
@@ -180,7 +178,7 @@ public class BOJ15683 {
 		}
 	}
 
-	private static void right(int i) {
+	private static void right(int i, ArrayList<Cctv> list) {
 		int currY = list.get(i).y;
 		int currX = list.get(i).x;
 		while (true) {
@@ -204,13 +202,16 @@ public class BOJ15683 {
 		}
 		for (int i = 0; i < list.size(); ++i) {
 			Cctv curr = list.get(i);
+			board[curr.y][curr.x] = curr.num;			
+		}
+		for(int i = 0; i<only5.size(); ++i) {
+			Cctv curr = only5.get(i);
 			board[curr.y][curr.x] = curr.num;
-			if (curr.num == 5) {
-				left(i);
-				right(i);
-				down(i);
-				up(i);
-			}
+			
+			left(i, only5);
+			right(i, only5);
+			up(i, only5);
+			down(i, only5);
 		}
 	}
 
