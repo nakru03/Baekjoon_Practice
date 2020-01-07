@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class BOJ15683 {
+public class Main {
 	static int Y;
 	static int X;
 	static int[][] board;
